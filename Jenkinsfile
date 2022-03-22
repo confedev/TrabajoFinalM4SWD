@@ -31,14 +31,14 @@ pipeline {
                 sh 'mvn spring-boot:run &'
             }
         }
-        stage('Paso 5: Dormir(Esperar 30sg) (Back)') {
+        stage('Paso 5: Dormir(Esperar 60sg) (Back)') {
             steps {
-                sh 'sleep 30'
+                sh 'sleep 60'
             }
         }
         stage('Paso 6: Curl con Sleep de prueba (Back)') {
             steps {
-                sh "curl -X GET 'http://localhost:8081/rest/msdxc/ping'"
+                sh 'curl -X GET "http://localhost:8081/rest/msdxc/ping"'
             }
         }
         stage('Paso 7: Test Jmeter (Back)') {
@@ -67,9 +67,9 @@ pipeline {
                 }
             }
         }
-        stage('Paso 11: Dormir(Esperar 30sg) (Front)') {
+        stage('Paso 11: Dormir(Esperar 60sg) (Front)') {
             steps {
-                sh 'sleep 30'
+                sh 'sleep 60'
             }
         }
         stage('Paso 12: Curl con Sleep de prueba  (Front)') {
