@@ -31,9 +31,9 @@ pipeline {
                 sh 'mvn spring-boot:run &'
             }
         }
-        stage('Paso 5: Dormir(Esperar 10sg) (Back)') {
+        stage('Paso 5: Dormir(Esperar 30sg) (Back)') {
             steps {
-                sh 'sleep 10'
+                sh 'sleep 30'
             }
         }
         stage('Paso 6: Curl con Sleep de prueba (Back)') {
@@ -67,9 +67,9 @@ pipeline {
                 }
             }
         }
-        stage('Paso 11: Dormir(Esperar 10sg) (Front)') {
+        stage('Paso 11: Dormir(Esperar 30sg) (Front)') {
             steps {
-                sh 'sleep 10'
+                sh 'sleep 30'
             }
         }
         stage('Paso 12: Curl con Sleep de prueba  (Front)') {
