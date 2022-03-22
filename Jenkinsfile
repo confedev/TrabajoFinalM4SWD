@@ -38,7 +38,7 @@ pipeline {
         }
         stage('Paso 6: Curl con Sleep de prueba (Back)') {
             steps {
-                sh "curl -X GET 'http://localhost:8081/rest/msdxc/dxc?sueldo=500000&&ahorro=25000000'"
+                sh "curl -X GET 'http://localhost:8081/rest/msdxc/ping'"
             }
         }
         stage('Paso 7: Test Jmeter (Back)') {
