@@ -1,3 +1,6 @@
+# Versión Disponible solo para Windows y Servidor Jenkins con Debian.
+### Requiere tener Google Chrome instalado en el Sistema Operativo.
+
 # Backend
 
 ### Run Jar

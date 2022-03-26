@@ -85,8 +85,15 @@ class DevopsApplicationTests {
 	  JavascriptExecutor js;
 	  WebDriver driver;
 
-	  System.setProperty("webdriver.chrome.driver","src/driver/linx/chromedriver"); // Linux
-	  // System.setProperty("webdriver.chrome.driver","src/driver/win/chromedriver.exe"); // Windows
+	  String OS = System.getProperty("os.name").toLowerCase();
+	  System.out.println("OS: " + OS);
+	  if(OS.contains("win")){
+		System.out.println("Es Windows");
+		System.setProperty("webdriver.chrome.driver","src/driver/win/chromedriver.exe"); // Windows
+	  }else{
+		System.out.println("No es Windows");
+		System.setProperty("webdriver.chrome.driver","src/driver/linx/chromedriver"); // Linux
+	  }
 
 	  // Chrome Driver Options (Utiliza el navegador sin interfaz)
 	  ChromeOptions options = new ChromeOptions();
