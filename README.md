@@ -32,3 +32,8 @@
 
 ### Testing Application
 * Open on Browser: http://localhost:3000
+
+# Reportes
+
+### Tablas Jmetter
+* Se encuentran en el proyecto en "reportes".
