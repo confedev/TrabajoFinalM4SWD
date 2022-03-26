@@ -76,7 +76,7 @@ class DevopsApplicationTests {
 	}
 
 	@Test
-	public void seleniumTest() {
+	public void seleniumTest() throws Exception{
 	  System.out.print("**********************Ejecutando Test de Selenium***********************");
 	  JavascriptExecutor js;
 	  WebDriver driver;
