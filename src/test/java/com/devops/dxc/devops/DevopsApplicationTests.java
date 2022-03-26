@@ -83,11 +83,11 @@ class DevopsApplicationTests {
 	  System.out.print("**********************Ejecutando Test de Selenium***********************");
 	  JavascriptExecutor js;
 	  WebDriver driver;
-	  // System.setProperty("webdriver.chrome.driver","src/driver/linx/chromedriver"); // Linux
+	  System.setProperty("webdriver.chrome.driver","src/driver/linx/chromedriver"); // Linux
 	  // System.setProperty("webdriver.chrome.driver","src/driver/win/chromedriver.exe"); // Windows
 	  // driver = new FirefoxDriver(); // Firefox
-	  File pathBinary = new File("/usr/bin/google-chrome");
-	  System.setProperty("webdriver.chrome.drive", pathBinary.getAbsolutePath());
+	  // File pathBinary = new File("/usr/bin/google-chrome");
+	  // System.setProperty("webdriver.chrome.drive", pathBinary.getAbsolutePath());
 	  driver = new ChromeDriver(); // Google Chrome
 	  js = (JavascriptExecutor) driver;
 	  System.out.print("Ejecutando Test de Selenium");
