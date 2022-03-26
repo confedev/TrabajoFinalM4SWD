@@ -2,56 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Paso 1: Compilar (Back)') {
-            steps {
-                script {
-                    sh "echo 'Compile Code!'"
-                    sh 'mvn clean compile -e'
-                }
-            }
-        }
-        stage('Paso 2: Testear (Back)') {
-            steps {
-                script {
-                    sh "echo 'Test Code!'"
-                    sh 'mvn clean test -e'
-                }
-            }
-        }
-        stage('Paso 3: Build .Jar (Back)') {
-            steps {
-                script {
-                    sh "echo 'Build .Jar!'"
-                    sh 'mvn clean package -e'
-                }
-            }
-        }
-        stage('Paso 4: Levantar Springboot APP (Back)') {
-            steps {
-                sh 'mvn spring-boot:run &'
-            }
-        }
-        stage('Paso 5: Dormir(Esperar 60sg) (Back)') {
-            steps {
-                sh 'sleep 60'
-            }
-        }
-        stage('Paso 6: Curl con Sleep de prueba (Back)') {
-            steps {
-                sh 'curl -X GET "http://localhost:8081/rest/msdxc/ping"'
-            }
-        }
-        stage('Paso 7: Test Jmeter (Back)') {
-            steps {
-                sh 'mvn jmeter:jmeter -Pjmeter'
-            }
-        }
-        stage('Paso 8: Test API responses (Back)') {
-            steps {
-                sh 'newman run LabMod4.postman_collection.json'
-            }
-        }
-        stage('Paso 9: Install npm modules (Front)') {
+        stage('Install npm modules (Front)') {
             steps {
                 script {
                     sh "echo 'npm install!'"
@@ -59,7 +10,7 @@ pipeline {
                 }
             }
         }
-        stage('Paso 10: Start Node Server (Front)') {
+        stage('Start Node Server (Front)') {
             steps {
                 script {
                     sh "echo 'npm app!'"
@@ -67,19 +18,63 @@ pipeline {
                 }
             }
         }
-        stage('Paso 11: Dormir(Esperar 60sg) (Front)') {
+        stage('Dormir(Esperar 60sg) (Front)') {
             steps {
                 sh 'sleep 60'
             }
         }
-        stage('Paso 12: Curl con Sleep de prueba  (Front)') {
+        stage('Curl con Sleep de prueba  (Front)') {
             steps {
                 sh "curl -X GET 'http://localhost:3000/'"
             }
         }
-        stage('Paso 13: Selenium Test  (Front)') {
+        stage('Compilar (Back)') {
             steps {
-                sh "echo 'Selenium Testing!'"
+                script {
+                    sh "echo 'Compile Code!'"
+                    sh 'mvn clean compile -e'
+                }
+            }
+        }
+        stage('Testear (Back)') {
+            steps {
+                script {
+                    sh "echo 'Test Code!'"
+                    sh 'mvn clean test -e'
+                }
+            }
+        }
+        stage('Build .Jar (Back)') {
+            steps {
+                script {
+                    sh "echo 'Build .Jar!'"
+                    sh 'mvn clean package -e'
+                }
+            }
+        }
+        stage('Levantar Springboot APP (Back)') {
+            steps {
+                sh 'mvn spring-boot:run &'
+            }
+        }
+        stage('Dormir(Esperar 60sg) (Back)') {
+            steps {
+                sh 'sleep 60'
+            }
+        }
+        stage('Curl con Sleep de prueba (Back)') {
+            steps {
+                sh 'curl -X GET "http://localhost:8081/rest/msdxc/ping"'
+            }
+        }
+        stage('Test Jmeter (Back)') {
+            steps {
+                sh 'mvn jmeter:jmeter -Pjmeter'
+            }
+        }
+        stage('Test API responses (Back)') {
+            steps {
+                sh 'newman run LabMod4.postman_collection.json'
             }
         }
     }
