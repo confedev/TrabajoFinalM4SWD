@@ -18,9 +18,9 @@ pipeline {
                 }
             }
         }
-        stage('Dormir(Esperar 60sg) (Front)') {
+        stage('Dormir(Esperar 15sg) (Front)') {
             steps {
-                sh 'sleep 60'
+                sh 'sleep 15'
             }
         }
         stage('Curl con Sleep de prueba  (Front)') {
