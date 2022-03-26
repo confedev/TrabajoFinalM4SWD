@@ -17,9 +17,9 @@
 
 ### Testing Application
 * Test Live: http://localhost:8081/rest/msdxc/ping
-* Test DXC: http://localhost:8081/rest/msdxc/dxc?sueldo=2000000&ahorro=10000000
-* Test Impuesto: http://localhost:8081/rest/msdxc/impuesto?sueldo=2000000&ahorro=10000000
-* Test Saldo: http://localhost:8081/rest/msdxc/saldo?sueldo=2000000&ahorro=10000000
+* Test DXC: http://localhost:8081/rest/msdxc/dxc?sueldo=2000000&ahorro=40000000
+* Test Impuesto: http://localhost:8081/rest/msdxc/impuesto?sueldo=2000000&ahorro=40000000
+* Test Saldo: http://localhost:8081/rest/msdxc/saldo?sueldo=2000000&ahorro=40000000
 
 
 # Frontend

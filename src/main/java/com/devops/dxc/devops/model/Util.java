@@ -17,6 +17,7 @@ public class Util {
      */
     public static int getDxc(int ahorro, int sueldo){
         if(((ahorro*0.1)/getUf()) > 150 ){
+            // System.out.println("Se utiliza UF");
             return (int) (150*getUf()) ;
         } else if((ahorro*0.1)<=1000000 && ahorro >=1000000){
             return (int) 1000000;
