@@ -83,18 +83,18 @@ class DevopsApplicationTests {
 	public void seleniumTest() throws Exception{
 	  System.out.print("**********************Ejecutando Test de Selenium***********************");
 	  JavascriptExecutor js;
+	  WebDriver driver;
 
 	  System.setProperty("webdriver.chrome.driver","src/driver/linx/chromedriver"); // Linux
 	  // System.setProperty("webdriver.chrome.driver","src/driver/win/chromedriver.exe"); // Windows
-	  // driver = new FirefoxDriver(); // Firefox
-	  // File pathBinary = new File("/usr/bin/google-chrome");
-	  // System.setProperty("webdriver.chrome.drive", pathBinary.getAbsolutePath());
+
+	  // Chrome Driver Options (Utiliza el navegador sin interfaz)
 	  ChromeOptions options = new ChromeOptions();
 	  options.addArguments("--headless");
 	  options.addArguments("--no-sandbox");
 	  options.addArguments("--disable-dev-shm-usage");
-	  WebDriver driver;
-	  driver = new ChromeDriver(options); // Google Chrome
+	  driver = new ChromeDriver(options);
+
 	  js = (JavascriptExecutor) driver;
 	  System.out.print("Ejecutando Test de Selenium");
 	  driver.get("http://localhost:3000/");
