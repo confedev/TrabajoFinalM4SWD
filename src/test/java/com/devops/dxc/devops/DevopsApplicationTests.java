@@ -2,6 +2,8 @@ package com.devops.dxc.devops;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.io.File;
+
 import com.devops.dxc.devops.model.Util;
 
 import org.junit.jupiter.api.Test;
@@ -83,8 +85,10 @@ class DevopsApplicationTests {
 	  WebDriver driver;
 	  // System.setProperty("webdriver.chrome.driver","src/driver/linx/chromedriver"); // Linux
 	  // System.setProperty("webdriver.chrome.driver","src/driver/win/chromedriver.exe"); // Windows
-	  // driver = new ChromeDriver(); // Google Chrome
-	  driver = new FirefoxDriver(); // Firefox
+	  // driver = new FirefoxDriver(); // Firefox
+	  File pathBinary = new File("/usr/bin/google-chrome");
+	  System.setProperty("webdriver.chrome.drive", pathBinary.getAbsolutePath());
+	  driver = new ChromeDriver(); // Google Chrome
 	  js = (JavascriptExecutor) driver;
 	  System.out.print("Ejecutando Test de Selenium");
 	  driver.get("http://localhost:3000/");
