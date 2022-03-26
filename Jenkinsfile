@@ -40,7 +40,7 @@ pipeline {
             steps {
                 script {
                     sh "echo 'Test Code!'"
-                    sh "chmod +x src/driver/chromedriver"
+                    sh "chmod +x src/driver/linx/chromedriver"
                     sh 'mvn clean test -e'
                 }
             }
