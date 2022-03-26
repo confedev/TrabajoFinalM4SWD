@@ -12,6 +12,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -82,13 +83,16 @@ class DevopsApplicationTests {
 	public void seleniumTest() throws Exception{
 	  System.out.print("**********************Ejecutando Test de Selenium***********************");
 	  JavascriptExecutor js;
-	  WebDriver driver;
+
 	  System.setProperty("webdriver.chrome.driver","src/driver/linx/chromedriver"); // Linux
 	  // System.setProperty("webdriver.chrome.driver","src/driver/win/chromedriver.exe"); // Windows
 	  // driver = new FirefoxDriver(); // Firefox
 	  // File pathBinary = new File("/usr/bin/google-chrome");
 	  // System.setProperty("webdriver.chrome.drive", pathBinary.getAbsolutePath());
-	  driver = new ChromeDriver(); // Google Chrome
+	  ChromeOptions options = new ChromeOptions();
+	  options.addArguments("--headless");
+	  WebDriver driver;
+	  driver = new ChromeDriver(options); // Google Chrome
 	  js = (JavascriptExecutor) driver;
 	  System.out.print("Ejecutando Test de Selenium");
 	  driver.get("http://localhost:3000/");
