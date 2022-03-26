@@ -10,6 +10,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
@@ -22,12 +23,12 @@ class DevopsApplicationTests {
 	public void testGetDxc_CASO1() throws Exception{
 		assertEquals(1000000, Util.getDxc(10000000, 2000000));
 	}
-	
+
 	@Test
 	public void testGetImpuesto_CASO1() throws Exception{
 		assertEquals(80000, Util.getImpuesto(10000000, 2000000));
 	}
-	
+
 	@Test
 	public void testGetSaldo_CASO1() throws Exception{
 		assertEquals(9000000, Util.getSaldo(10000000, 2000000));
@@ -41,13 +42,13 @@ class DevopsApplicationTests {
 		//10%
 		assertEquals(3000000, Util.getDxc(30000000, 1400000));
 	}
-	
+
 	@Test
 	public void testGetImpuesto_CASO2() throws Exception{
 		//Impuesto
 		assertEquals(0, Util.getImpuesto(30000000, 1400000));
 	}
-	
+
 	@Test
 	public void testGetSaldo_CASO2() throws Exception{
 		//Saldo
@@ -62,13 +63,13 @@ class DevopsApplicationTests {
 		//10%
 		assertEquals(1800000, Util.getDxc(18000000, 2000000));
 	}
-	
+
 	@Test
 	public void testGetImpuesto_CASO3() throws Exception{
 		//Impuesto
 		assertEquals(144000, Util.getImpuesto(18000000, 2000000));
 	}
-	
+
 	@Test
 	public void testGetSaldo_CASO3() throws Exception{
 		//Saldo
@@ -80,8 +81,10 @@ class DevopsApplicationTests {
 	  System.out.print("**********************Ejecutando Test de Selenium***********************");
 	  JavascriptExecutor js;
 	  WebDriver driver;
-	  System.setProperty("webdriver.chrome.driver","src/driver/chromedriver");
-	  driver = new ChromeDriver();
+	  // System.setProperty("webdriver.chrome.driver","src/driver/linx/chromedriver"); // Linux
+	  // System.setProperty("webdriver.chrome.driver","src/driver/win/chromedriver.exe"); // Windows
+	  // driver = new ChromeDriver(); // Google Chrome
+	  driver = new FirefoxDriver(); // Firefox
 	  js = (JavascriptExecutor) driver;
 	  System.out.print("Ejecutando Test de Selenium");
 	  driver.get("http://localhost:3000/");

@@ -3,7 +3,7 @@ package com.devops.dxc.devops.model;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import com.google.gson.Gson;
+// import com.google.gson.Gson;
 
 public class Util {
 
