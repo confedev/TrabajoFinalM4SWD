@@ -84,13 +84,15 @@ class DevopsApplicationTests {
 	  System.out.print("**********************Ejecutando Test de Selenium***********************");
 	  JavascriptExecutor js;
 
-	  System.setProperty("webdriver.chrome.driver","src/driver/linx/chromedriver"); // Linux
-	  // System.setProperty("webdriver.chrome.driver","src/driver/win/chromedriver.exe"); // Windows
+	  // System.setProperty("webdriver.chrome.driver","src/driver/linx/chromedriver"); // Linux
+	  System.setProperty("webdriver.chrome.driver","src/driver/win/chromedriver.exe"); // Windows
 	  // driver = new FirefoxDriver(); // Firefox
 	  // File pathBinary = new File("/usr/bin/google-chrome");
 	  // System.setProperty("webdriver.chrome.drive", pathBinary.getAbsolutePath());
 	  ChromeOptions options = new ChromeOptions();
 	  options.addArguments("--headless");
+	  options.addArguments("--no-sandbox");
+	  options.addArguments("--disable-dev-shm-usage");
 	  WebDriver driver;
 	  driver = new ChromeDriver(options); // Google Chrome
 	  js = (JavascriptExecutor) driver;
