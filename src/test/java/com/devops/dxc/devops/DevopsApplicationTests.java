@@ -104,6 +104,7 @@ class DevopsApplicationTests {
 	  options.addArguments("--no-sandbox");
 	  options.addArguments("--disable-dev-shm-usage");
 	  driver = new ChromeDriver(options);
+	  Integer sleepTimeMill = 30000; // 30 segundos
 
 	  js = (JavascriptExecutor) driver;
 	  System.out.print("Ejecutando Test de Selenium");
@@ -116,19 +117,19 @@ class DevopsApplicationTests {
 
 	  // Test DXC
 	  driver.findElement(By.id("btn_dxc")).click();
-	  TimeUnit.MILLISECONDS.sleep(5000);
+	  TimeUnit.MILLISECONDS.sleep(sleepTimeMill);
 	  resultado = driver.findElement(By.id("resultado")).getText();
 	  assertEquals("DXC: 1000000", resultado);
 
 	  // Test Saldo
 	  driver.findElement(By.id("btn_saldo")).click();
-	  TimeUnit.MILLISECONDS.sleep(5000);
+	  TimeUnit.MILLISECONDS.sleep(sleepTimeMill);
 	  resultado = driver.findElement(By.id("resultado")).getText();
 	  assertEquals("Saldo: 9000000", resultado);
 
       // Test Impuesto
       driver.findElement(By.id("btn_impuesto")).click();
-      TimeUnit.MILLISECONDS.sleep(5000);
+      TimeUnit.MILLISECONDS.sleep(sleepTimeMill);
       resultado = driver.findElement(By.id("resultado")).getText();
       assertEquals("Impuesto: 80000", resultado);
 

@@ -82,11 +82,11 @@ public class Util {
      * @return
      */
     public static int getUf(){
-        // RestTemplate restTemplate = new RestTemplate();
-        // ResponseEntity<String> call= restTemplate.getForEntity("https://mindicador.cl/api/uf" ,String.class);
-        // String valorUFString = call.getBody().toLowerCase().split("valor")[1].split(":")[1].split("}")[0];
-        // int valorUF = (int)Double.parseDouble(valorUFString);
-        int valorUF = 31000;
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> call= restTemplate.getForEntity("https://mindicador.cl/api/uf" ,String.class);
+        String valorUFString = call.getBody().toLowerCase().split("valor")[1].split(":")[1].split("}")[0];
+        int valorUF = (int)Double.parseDouble(valorUFString);
+        // int valorUF = 31000; Valor Estático
         return valorUF;
     }
 }
