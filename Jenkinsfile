@@ -36,6 +36,21 @@ pipeline {
                 }
             }
         }
+        stage('Levantar Springboot APP (Back)') {
+            steps {
+                sh 'mvn spring-boot:run &'
+            }
+        }
+        stage('Dormir(Esperar 60sg) (Back)') {
+            steps {
+                sh 'sleep 60'
+            }
+        }
+        stage('Curl con Sleep de prueba (Back)') {
+            steps {
+                sh 'curl -X GET "http://localhost:8081/rest/msdxc/ping"'
+            }
+        }
         stage('Testear (Back)') {
             steps {
                 script {
@@ -51,21 +66,6 @@ pipeline {
                     sh "echo 'Build .Jar!'"
                     sh 'mvn clean package -e'
                 }
-            }
-        }
-        stage('Levantar Springboot APP (Back)') {
-            steps {
-                sh 'mvn spring-boot:run &'
-            }
-        }
-        stage('Dormir(Esperar 60sg) (Back)') {
-            steps {
-                sh 'sleep 60'
-            }
-        }
-        stage('Curl con Sleep de prueba (Back)') {
-            steps {
-                sh 'curl -X GET "http://localhost:8081/rest/msdxc/ping"'
             }
         }
         stage('Test Jmeter (Back)') {
