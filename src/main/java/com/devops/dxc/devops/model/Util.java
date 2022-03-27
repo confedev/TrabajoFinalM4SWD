@@ -82,14 +82,11 @@ public class Util {
      * @return
      */
     public static int getUf(){
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> call= restTemplate.getForEntity("https://mindicador.cl/api/uf" ,String.class);
-        //Gson gson = new Gson();
-        //MiIndicador miIndicador = gson.fromJson(call.getBody().toLowerCase(), MiIndicador.class);
-        //int valorUf = (miIndicador.getSerie().get(0).getValor()).intValue();
-        String valorUFString = call.getBody().toLowerCase().split("valor")[1].split(":")[1].split("}")[0];
-        int valorUF = (int)Double.parseDouble(valorUFString);
-        // System.out.println("Valor de UF: " + valorUF);
+        // RestTemplate restTemplate = new RestTemplate();
+        // ResponseEntity<String> call= restTemplate.getForEntity("https://mindicador.cl/api/uf" ,String.class);
+        // String valorUFString = call.getBody().toLowerCase().split("valor")[1].split(":")[1].split("}")[0];
+        // int valorUF = (int)Double.parseDouble(valorUFString);
+        int valorUF = 31000;
         return valorUF;
     }
 }

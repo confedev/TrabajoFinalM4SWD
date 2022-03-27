@@ -3,6 +3,7 @@ package com.devops.dxc.devops;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 import com.devops.dxc.devops.model.Util;
 
@@ -84,6 +85,8 @@ class DevopsApplicationTests {
 	  System.out.print("**********************Ejecutando Test de Selenium***********************");
 	  JavascriptExecutor js;
 	  WebDriver driver;
+	  String resultado;
+	  Integer timout = 4;
 
 	  String OS = System.getProperty("os.name").toLowerCase();
 	  System.out.println("OS: " + OS);
@@ -107,12 +110,29 @@ class DevopsApplicationTests {
 	  driver.get("http://localhost:3000/");
 	  driver.manage().window().setSize(new Dimension(1276, 693));
 	  driver.findElement(By.id("input_sueldo")).click();
-	  driver.findElement(By.id("input_sueldo")).sendKeys("40000");
+	  driver.findElement(By.id("input_sueldo")).sendKeys("2000000");
 	  driver.findElement(By.id("input_ahorro")).click();
-	  driver.findElement(By.id("input_ahorro")).sendKeys("50000");
+	  driver.findElement(By.id("input_ahorro")).sendKeys("10000000");
+
+	  // Test DXC
 	  driver.findElement(By.id("btn_dxc")).click();
+	  TimeUnit.MILLISECONDS.sleep(5000);
+	  resultado = driver.findElement(By.id("resultado")).getText();
+	  assertEquals("DXC: 1000000", resultado);
+
+	  // Test Saldo
 	  driver.findElement(By.id("btn_saldo")).click();
-	  driver.findElement(By.id("btn_impuesto")).click();
+	  TimeUnit.MILLISECONDS.sleep(5000);
+	  resultado = driver.findElement(By.id("resultado")).getText();
+	  assertEquals("Saldo: 9000000", resultado);
+
+      // Test Impuesto
+      driver.findElement(By.id("btn_impuesto")).click();
+      TimeUnit.MILLISECONDS.sleep(5000);
+      resultado = driver.findElement(By.id("resultado")).getText();
+      assertEquals("Impuesto: 80000", resultado);
+
+	  driver.close();
 	}
 
 }
